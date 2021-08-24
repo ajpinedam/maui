@@ -51,7 +51,10 @@ namespace Recipes.ViewModels
             {
                 IsBusy = false;
             }
-        }
+
+			MessagingCenter.Send(this, "RemoveRecipeFromVirtualListView");
+
+		}
 
         public void OnAppearing()
         {
