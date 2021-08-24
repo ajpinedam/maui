@@ -53,7 +53,6 @@ namespace Recipes.ViewModels
             }
 
 			MessagingCenter.Send(this, "RemoveRecipeFromVirtualListView");
-
 		}
 
         public void OnAppearing()
@@ -61,7 +60,6 @@ namespace Recipes.ViewModels
             IsBusy = true;
             SelectedItem = null;
 
-            //await ExecuteLoadItemsCommand();
             LoadItemsCommand.Execute(null);
         }
 

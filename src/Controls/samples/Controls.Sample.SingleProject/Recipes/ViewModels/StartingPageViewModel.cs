@@ -8,7 +8,7 @@ namespace Recipes.ViewModels
     {
         RestService _restService;
 
-        string _searchQuery; // private by default, _name convention
+        string _searchQuery;
         bool _recipeTypeButtonsVisible;
         string _noResultsLabel;
         bool _noResultsVisible;

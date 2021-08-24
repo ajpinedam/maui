@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Recipes.ViewModels
 {
-    [QueryProperty(nameof(Id), nameof(Id))] // query string - using property names directly and avoiding magic strings
+    [QueryProperty(nameof(Id), nameof(Id))]
     public class EditItemViewModel : BaseViewModel
     {
         string _id;
@@ -103,18 +103,14 @@ namespace Recipes.ViewModels
 
         private async void OnCancel()
         {
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync(".."); // .. passes data (and clears out data / previous query properties); doesn't just go back and do nothing
+            await Shell.Current.GoToAsync("..");
         }
 
         private async void OnDelete()
         {
-            await DataStore.DeleteItemAsync(_id); // need to pass in ID of selected item somehow
+            await DataStore.DeleteItemAsync(_id);
 
-            //Shell.Current.Navigation.RemovePage($"../../{id}");
-
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("../..");
+			await Shell.Current.GoToAsync("../..");
         }
 
         private async void OnUpdate()
@@ -136,7 +132,6 @@ namespace Recipes.ViewModels
 
             await DataStore.UpdateItemAsync(newItem);
 
-            // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
     }
